@@ -77,7 +77,7 @@ def handle_request(data, connection):
         response = handler.rename(parameters)
 
     elif(method == 'GET' and path == '/download'):
-        response = handler.download(parameters, connection)
+        response = handler.download(parameters)
 
     else:
         response = handler.response(404, {'message': 'Request not found!'})
