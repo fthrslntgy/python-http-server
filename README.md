@@ -31,4 +31,4 @@ form-data içerisinde verilen dosyayı server'a kaydeder. multipart/form-data ve
 ### GET /download
 **fileName** parametresi ile aldığı isimdeki dosyayı gönderir. Parametre eksik olması veya gönderilecek dosyanın olmaması durumlarında ilgili uyarıyı döndürür
 
-Örneğin önceden yüklenmiş olan "homework.pdf" dosyasını görüntülemek için tarayıcıya `http://127.0.0.1:8080/download/?filename=homework.pdf`yazarak (veya Postman üzerinden aynı sorgu ile) endpointe sorgu atılabilir ve dosya görüntülenebilir.
+Örneğin önceden yüklenmiş olan "homework.pdf" dosyasını görüntülemek için tarayıcıya `http://127.0.0.1:8080/download/?filename=homework.pdf` yazarak (veya Postman üzerinden aynı sorgu ile) endpointe sorgu atılabilir ve dosya görüntülenebilir.
