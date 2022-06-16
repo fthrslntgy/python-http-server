@@ -62,18 +62,18 @@ def request(data, connection):
         global boundary
         if boundary:
             if null_filename: # filename cannot be null in upload method
-                response = handler.response(404, {'message': 'Missing file!'})
+                response = handler.response(400, {'message': 'Missing file!'})
             else:
-                boundary_index = lines.index(b'--' + boundary) # get boundary index
+                filename_index = lines.index(b'--' + boundary) + 1 # get boundary index
                 # get filename in line thats after the line of boundary places
-                filename = lines[boundary_index+1].split(b'filename=')[1].split(b'\r\n')[0].decode().replace('"', '') 
+                filename = lines[filename_index].split(b'filename=')[1].split(b'\r\n')[0].decode().replace('"', '') 
                 content_type = re.search(b'Content-Type:(.+?)\r\n\r\n', data)
                 # get file content it places after content type and finishes at --boundary
                 file_content = data.split(content_type.group(1) + b'\r\n\r\n')[1].split(b'\r\n--' + boundary + b'--')[0]
                 response = handler.upload(filename, file_content)
         # if endpoint is upload and there is not a correct boundary, there is an error
         else:
-            response = handler.response(404, {'message': 'Boundary not found! Please enter correct multipart/form-data'})
+            response = handler.response(400, {'message': 'Boundary not found! Please enter correct multipart/form-data'})
     # handle DELETE endpoints
     elif(method == 'DELETE' and endpoint == '/remove'):
         response = handler.remove(parameters)

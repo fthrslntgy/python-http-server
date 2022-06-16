@@ -98,7 +98,7 @@ class Handler():
         fileName = parameters["fileName"][0]
         if not os.path.exists(fileName):
             return self.response(200, {'message': 'File cannot found!'})
-        # if exists, read it byte by byte, append to array and send this array to response as body
+        # if exists, read it and append to array and send this array to response as body
         datas = []
         with open(fileName, 'rb') as file:
             while True:
