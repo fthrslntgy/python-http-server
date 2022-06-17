@@ -44,10 +44,10 @@ class Handler():
     def isPrime(self, parameters):
             # check there is a "number" parameter
             if "number" not in parameters:
-                return self.response(400, {'error': 'Missing <number> parameter'})
+                return self.response(400, {'message': 'Missing <number> parameter'})
             # check "number" parameter is an integer
             elif not parameters["number"][0].isdigit():
-                return self.response(400, {'error': 'Please enter an integer!'})
+                return self.response(400, {'message': 'Please enter an integer!'})
             # check this number is prime and return
             number = int(parameters["number"][0])
             primity = self.checkPrime(number)
