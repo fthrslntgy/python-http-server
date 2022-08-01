@@ -107,7 +107,7 @@ class Handler():
                     datas.append(data)
                 else: 
                     break
-        file.close
+        file.close()
         # remember response method's return changes according to "download" parameter. i send this parameter as True below
         return self.response(200, datas, True) 
 
